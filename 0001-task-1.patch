@@ -1,0 +1,36 @@
+From d93b7f09a6df566efecc3bc3a1eed371ac0691ac Mon Sep 17 00:00:00 2001
+From: uniqname <uniqname@umich.edu>
+Date: Mon, 17 Jul 2023 13:31:20 -0700
+Subject: [PATCH] task 1
+
+---
+ client3.py | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/client3.py b/client3.py
+index 3fc09b7..09e2055 100644
+--- a/client3.py
++++ b/client3.py
+@@ -35,14 +35,15 @@ def getDataPoint(quote):
+     stock = quote['stock']
+     bid_price = float(quote['top_bid']['price'])
+     ask_price = float(quote['top_ask']['price'])
+-    price = bid_price
++    price = (bid_price + ask_price) / 2
+     return stock, bid_price, ask_price, price
+ 
+ 
+ def getRatio(price_a, price_b):
+-    """ Get ratio of price_a and price_b """
+-    """ ------------- Update this function ------------- """
+-    return 1
++    if (price_b == 0):
++        return
++    return price_a / price_b
++   
+ 
+ 
+ # Main
+-- 
+2.37.3
+
